@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+<script>
+function isArrayLike(o) {
+    var len;
+    if (!(
+        o &&                                    //非null、undefined等
+        typeof o === 'object' &&                //o是对象
+        isFinite(o.length)                      //o.length 是有限数值
+    )) {
+        return false;
+    }
+    len = o.length;
+    if (                
+        len >= 0 &&                             //o.length 非负数
+        len === Math.floor(len) &&              //o.length 是整数
+        len < 4294967296                        //o.length < 2^32
+        ) {
+        return true;
+    } else {
+        return false;
+    }
+}
+
+
+
+
+</script>
+</body>
+</html>
